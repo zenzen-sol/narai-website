@@ -1,0 +1,43 @@
+import seoFragment from '../fragments/seo';
+
+const pageFragment = /* GraphQL */ `
+  fragment page on Page {
+    ... on Page {
+      id
+      title
+      handle
+      body
+      bodySummary
+      seo {
+        ...seo
+      }
+      createdAt
+      updatedAt
+    }
+  }
+  ${seoFragment}
+`;
+
+export const getPageQuery = /* GraphQL */ `
+  query getPage($handle: String!, $country: CountryCode, $language: LanguageCode)
+  @inContext(country: $country, language: $language) {
+    pageByHandle(handle: $handle) {
+      ...page
+    }
+  }
+  ${pageFragment}
+`;
+
+export const getPagesQuery = /* GraphQL */ `
+  query getPages($country: CountryCode, $language: LanguageCode)
+  @inContext(country: $country, language: $language) {
+    pages(first: 100) {
+      edges {
+        node {
+          ...page
+        }
+      }
+    }
+  }
+  ${pageFragment}
+`;

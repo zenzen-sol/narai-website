@@ -1,0 +1,17 @@
+{
+	"editor.formatOnSave": true,
+	"editor.autoClosingBrackets": "never",
+	"editor.autoClosingQuotes": "never",
+	"editor.wordWrapColumn": 100,
+	"css.lint.unknownAtRules": "ignore",
+	"biome.enabled": true,
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "explicit",
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.tslint": "explicit",
+		"source.organizeImports.biome": "explicit",
+		"source.addMissingImports": "explicit"
+	},
+	"typescript.preferences.autoImportFileExcludePatterns": ["lucide-react"]
+}
